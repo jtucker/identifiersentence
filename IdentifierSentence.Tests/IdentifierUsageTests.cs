@@ -1,36 +1,40 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using FluentAssertions;
+using System;
+using Xunit;
 
 namespace TheLocal404.Tests
 {
-    [TestClass]
     public class IdentifierUsageTests
     {
-        [TestMethod]
+        [Fact]
         public void IdentifierCanParseToNumber()
         {
             var knownSentence = "8 mad orcs stomp loudly";
 
             int parsedId = IdentifierSentence.Parse(knownSentence);
 
-            Assert.AreEqual(23569896, parsedId);
+            parsedId.Should().Be(23569896);
         }
 
-        [TestMethod]
+        [Fact]
         public void IdentifierCanGenerateRandomSentence()
         {
             var randomSentence = IdentifierSentence.Random();
-            Assert.AreNotEqual(string.Empty, randomSentence);
+            Action parsingAction = () => IdentifierSentence.Parse(randomSentence);
 
-            IdentifierSentence.Parse(randomSentence);
+            randomSentence.Should().NotBeNullOrEmpty();
+            parsingAction.Should().NotThrow();
         }
 
-        [TestMethod]
-        [ExpectedException(typeof(Exception), "Exception not thrown")]
+        [Fact]
         public void ShouldThrowExceptionWithBadSentence()
         {
             var badSentence = "Something Bad Here";
-            IdentifierSentence.Parse(badSentence);
+            Action parsingAction = () => IdentifierSentence.Parse(badSentence);
+
+            parsingAction.Should()
+                         .Throw<Exception>()
+                         .WithMessage("Bad identifier sentence provided.");
         }
     }
 }
