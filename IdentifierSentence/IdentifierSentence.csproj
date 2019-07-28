@@ -2,7 +2,7 @@
   <PropertyGroup>
     <RootNamespace>TheLocal404.IdentifierSentence</RootNamespace>
     <AssemblyName>TheLocal404.IdentifierSentence</AssemblyName>
-    <TargetFramework>net472</TargetFramework>
+    <TargetFramework>netstandard2.0</TargetFramework>
     <AssemblyTitle>IdentifierSentence</AssemblyTitle>
     <Company>The Local 404</Company>
     <Product>IdentifierSentence</Product>
@@ -10,13 +10,7 @@
     <OutputPath>bin\$(Configuration)\</OutputPath>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugType>full</DebugType>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-  </PropertyGroup>
-  <ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'net472'">
     <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
 </Project>
