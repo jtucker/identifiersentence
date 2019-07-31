@@ -2,15 +2,6 @@
   <PropertyGroup>
     <RootNamespace>TheLocal404.IdentifierSentence</RootNamespace>
     <AssemblyName>TheLocal404.IdentifierSentence</AssemblyName>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <AssemblyTitle>IdentifierSentence</AssemblyTitle>
-    <Company>The Local 404</Company>
-    <Product>IdentifierSentence</Product>
-    <Copyright>Copyright © The Local 404 2019</Copyright>
-    <OutputPath>bin\$(Configuration)\</OutputPath>
-    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
   </PropertyGroup>
-  <ItemGroup Condition="'$(TargetFramework)' == 'net472'">
-    <Reference Include="Microsoft.CSharp" />
-  </ItemGroup>
 </Project>
