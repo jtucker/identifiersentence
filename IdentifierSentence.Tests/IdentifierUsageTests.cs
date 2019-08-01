@@ -33,8 +33,8 @@ namespace TheLocal404.Tests
             Action parsingAction = () => IdentifierSentence.Parse(badSentence);
 
             parsingAction.Should()
-                         .Throw<Exception>()
-                         .WithMessage("Bad identifier sentence provided.");
+                        .Throw<Exception>()
+                        .WithMessage("Bad identifier sentence provided.");
         }
     }
 }

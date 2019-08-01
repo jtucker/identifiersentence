@@ -1,0 +1,32 @@
+trigger:
+- master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  buildConfiguration: 'Release'
+
+steps:
+- task: DotNetCoreCLI@2
+  inputs:
+    command: build
+    configuration: $(buildConfiguration)
+
+- task: DotNetCoreCLI@2
+  inputs:
+    command: test
+    publishTestResults: true
+    configuration: $(buildConfiguration)
+
+- task: DotNetCoreCLI@2
+  inputs: 
+    command: pack
+    configuration: $(buildConfiguration)
+
+- task: NuGetCommand@2
+  inputs:
+    command: 'push'
+    packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
+    nuGetFeedType: 'external'
+    publishFeedCredentials: 'nuget'

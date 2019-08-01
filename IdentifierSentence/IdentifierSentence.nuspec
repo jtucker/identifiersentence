@@ -4,8 +4,8 @@
     <id>$id$</id>
     <version>$version$</version>
     <title>$title$</title>
-    <authors>$author$</authors>
-    <owners>$author$</owners>
+    <authors>Jason Tucker</authors>
+    <owners>Jason Tucker</owners>
     <licenseUrl>https://github.com/jtucker/identifiersentence/LICENSE</licenseUrl>
     <projectUrl>https://github.com/jtucker/identifiersentence</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -13,7 +13,6 @@
     <releaseNotes>
       
     </releaseNotes>
-    <copyright>Copyright 2019</copyright>
     <tags></tags>
   </metadata>
 </package>

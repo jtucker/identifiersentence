@@ -1,36 +1,18 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
-    <ProductVersion />
+    <TargetFramework>netcoreapp2.2</TargetFramework>
     <RootNamespace>TheLocal404.IdentifierSentence.Tests</RootNamespace>
-    <AssemblyName>TheLocal404.IdentifierSentence.Tests</AssemblyName>
-    <TargetFramework>net472</TargetFramework>
-    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <ReferencePath>$(ProgramFiles)\Common Files\microsoft shared\VSTT\11.0\UITestExtensionPackages</ReferencePath>
-    <AssemblyTitle>IdentifierSentence.Tests</AssemblyTitle>
-    <Company>The Local 404</Company>
-    <Product>IdentifierSentence.Tests</Product>
-    <Copyright>Copyright © The Local 404 2019</Copyright>
-    <OutputPath>bin\$(Configuration)\</OutputPath>
-    <Description>A unique error phrase generator and parser.</Description>
-    <PackageProjectUrl>https://github.com/jtucker/identifiersentence</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/jtucker/identifiersentence</RepositoryUrl>
-    <PackageLicenseUrl>https://github.com/jtucker/identifiersentence/LICENSE</PackageLicenseUrl>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugType>full</DebugType>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
+    <IsPackable>false</IsPackable>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="FluentAssertions" Version="5.7.0" />
-    <PackageReference Include="xunit" Version="2.4.1" />
-    <PackageReference Include="xunit.runner.console" Version="2.4.1">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
-    </PackageReference>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.0.1" />
+    <PackageReference Include="xunit" Version="2.4.0" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.0" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\IdentifierSentence\IdentifierSentence.csproj" />
   </ItemGroup>
+
 </Project>
