@@ -8,11 +8,6 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-- task: GitVersion@5
-  inputs:
-    runtime: 'core'
-    updateAssemblyInfo: true
-
 - task: DotNetCoreCLI@2
   inputs:
     command: build
@@ -24,13 +19,11 @@ steps:
     publishTestResults: true
     configuration: $(buildConfiguration)
 
-- task: NuGetCommand@2
-  inputs:
-    command: 'pack'
-    packagesToPack: '**/IdentifierSentence.nuspec'
-    versioningScheme: 'byEnvVar'
-    versionEnvVar: '$(GitVersion.FullSemVer)'
+- task: DotNetCoreCLI@2
+  inputs: 
+    command: pack
+    configuration: $(buildConfiguration)
 
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: 'IdentifierSentence.$(GitVersion.FullSemVer).nupkg'
+    PathtoPublish: '**/$(buildConfiguration)/*.nupkg'
